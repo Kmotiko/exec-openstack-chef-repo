@@ -1,0 +1,353 @@
+{
+    "name": "my-multi-neutron",
+    "description": "",
+    "cookbook_versions": {
+    },
+    "json_class": "Chef::Environment",
+    "chef_type": "environment",
+    "default_attributes": {
+    },
+    "override_attributes": {
+        "mysql": {
+            "bind_address": "0.0.0.0",
+            "server_root_pasword": "root",
+            "server_debian_pasword": "root",
+            "server_repl_pasword": "root",
+            "allow_remote_root": true,
+            "root_network_acl": ["10.0.0.0/8"]
+        },
+        "rabbit_mq": {
+          "address": "10.0.3.11",
+          "port": "5672"
+        },
+        "openstack": {
+            "auth": {
+              "validate_certs": false
+            },
+            "dashboard": {
+              "session_backend": "file"
+            },
+            "block-storage": {
+              "syslog": {
+                "use": false
+              },
+              "api": {
+                "ratelimit": false
+              },
+              "debug": true,
+              "image_api_chef_role": "os-image",
+              "identity_service_chef_role": "os-identity",
+              "rabbit_server_chef_role": "os-ops-messageing"
+            },
+            "identity": {
+                "admin_user": "admin",
+                "bind_interface": "eth1",
+                "debug": true
+            },
+            "endpoints": {
+                "host": "10.0.3.11",
+                "bind-host": "10.0.3.11",
+                "compute-api-bind": {
+                  "host": "10.0.3.11",
+                  "scheme": "http",
+                  "port": "8774"
+                },
+                "compute-api": {
+                  "host": "10.0.3.11",
+                  "scheme": "http",
+                  "port": "8774"
+                },
+                "compute-ec2-admin-bind": {
+                  "host": "10.0.3.11",
+                  "scheme": "http",
+                  "port": "8773"
+                },
+                "compute-ec2-admin": {
+                  "host": "10.0.3.11",
+                  "scheme": "http",
+                  "port": "8773"
+                },
+                "compute-ec2-api-bind": {
+                  "host": "10.0.3.11",
+                  "scheme": "http",
+                  "port": "8773"
+                },
+                "compute-ec2-api": {
+                  "host": "10.0.3.11",
+                  "scheme": "http",
+                  "port": "8773"
+                },
+                "compute-vnc-proxy-bind": {
+                  "host": "10.0.3.11",
+                  "scheme": "http",
+                  "port": "6080"
+                },
+                "compute-vnc-bind": {
+                  "host": "10.0.3.11",
+                  "scheme": "http",
+                  "port": "6080",
+                  "bind_interface": "eth1"
+                },
+                "compute-vnc": {
+                  "host": "10.0.3.11",
+                  "scheme": "http",
+                  "port": "6080",
+                  "bind_interface": "eth1"
+                },
+                "compute-metadata-api": {
+                  "host": "10.0.3.11",
+                  "scheme": "http",
+                  "port": "8775"
+                },
+                "image-api": {
+                  "host": "10.0.3.11",
+                  "scheme": "http",
+                  "port": "9292"
+                },
+                "image-api-bind": {
+                  "host": "10.0.3.11",
+                  "scheme": "http",
+                  "port": "9292"
+                },
+                "image-registry": {
+                  "host": "10.0.3.11",
+                  "scheme": "http",
+                  "port": "9191"
+                },
+                "image-registry-bind": {
+                  "host": "10.0.3.11",
+                  "scheme": "http",
+                  "port": "9191"
+                },
+                "identity-api": {
+                  "host": "10.0.3.11",
+                  "scheme": "http",
+                  "port": "5000"
+                },
+                "identity-internal": {
+                  "host": "10.0.3.11",
+                  "scheme": "http",
+                  "port": "5000"
+                },
+                "identity-bind": {
+                  "host": "10.0.3.11",
+                  "scheme": "http",
+                  "port": "5000"
+                },
+                "identity-admin": {
+                  "host": "10.0.3.11",
+                  "scheme": "http",
+                  "port": "35357"
+                },
+                "identity-admin-bind": {
+                  "host": "10.0.3.11",
+                  "scheme": "http",
+                  "port": "35357"
+                },
+                "block-storage-api-bind": {
+                  "host": "10.0.3.11",
+                  "scheme": "http",
+                  "port": "8776"
+                },
+                "block-storage-api": {
+                  "host": "10.0.3.11",
+                  "scheme": "http",
+                  "port": "8776"
+                },
+                "telemetry-api": {
+                  "host": "10.0.3.11",
+                  "scheme": "http",
+                  "port": "8777"
+                },
+                "network-api-bind": {
+                  "host": "10.0.3.11",
+                  "scheme": "http",
+                  "port": "9696"
+                },
+                "network-api": {
+                  "host": "10.0.3.11",
+                  "scheme": "http",
+                  "port": "9696"
+                },
+                "network-openvswitch": {
+                  "host": "10.0.3.11",
+                  "scheme": "http",
+                  "port": "9697"
+                },
+                "network-linuxbridge": {
+                  "host": "10.0.3.11",
+                  "scheme": "http",
+                  "port": "9697"
+                },
+                "orchestration-api-bind": {
+                  "host": "10.0.3.11",
+                  "scheme": "http",
+                  "port": "8004"
+                },
+                "orchestration-api": {
+                  "host": "10.0.3.11",
+                  "scheme": "http",
+                  "port": "8004"
+                },
+                "orchestration-api-cfn-bind": {
+                  "host": "10.0.3.11",
+                  "scheme": "http",
+                  "port": "8000"
+                },
+                "orchestration-api-cfn": {
+                  "host": "10.0.3.11",
+                  "scheme": "http",
+                  "port": "8000"
+                },
+                "orchestration-cloudwatch-bind": {
+                  "host": "10.0.3.11",
+                  "scheme": "http",
+                  "port": "8003"
+                },
+                "orchestration-cloudwatch": {
+                  "host": "10.0.3.11",
+                  "scheme": "http",
+                  "port": "8003"
+                },
+                "mq": {
+                    "bind_interface": "eth1",
+                    "host": "10.0.3.11",
+                    "user": "guest",
+                    "vhost": "/",
+                    "network":{
+                        "rabbit":{
+                            "host": "10.0.3.11",
+                            "port": "5672"
+                        }
+                    },
+                    "compute":{
+                        "service_type": "rabbitmq",
+                        "rabbit":{
+                            "host": "10.0.3.11",
+                            "port": "5672"
+                        }
+                    },
+                    "block-storage":{
+                        "service_type": "rabbitmq",
+                        "rabbit":{
+                            "host": "10.0.3.11",
+                            "port": "5672"
+                        }
+                    }
+                },
+                "db": {
+                    "bind_interface": "eth1",
+                    "host": "10.0.3.11"
+                }
+            },
+            "network": {
+                "debug": "True",
+                "service_plugins": [ "router" ],
+                "dhcp": {
+                    "enable_isolated_metadata": "True"
+                },
+                "metadata": {
+                  "nova_metadata_ip": "10.0.3.11"
+                },
+                "allow_overlapping_ips": "True",
+                "verbose": "True",
+                "linux_bridge": {
+                  "firewall_driver": "neutron.agent.linux.iptables_firewall.OVSHybridIptablesFirewallDriver"
+                },
+                "ml2": {
+                   "type_drivers": "flat,gre",
+                   "tenant_network_type": "gre",
+                   "mechanism_drivers": "openvswitch",
+                   "flat_networks": "external",
+                   "tunnel_id_ranges": "1:100",
+                   "enable_security_group": "True",
+                   "tenant_network_types": "gre",
+                   "enable_ipset": "True"
+                },
+                "openvswitch": {
+                    "type_drivers": "flat,gre",
+                    "mechanism_drivers": "openvswitch",
+                    "tunnel_id_ranges": "1:1000",
+                    "enable_tunneling": "True",
+                    "tunnel_type": "gre",
+                    "tunnel_types": "gre",
+                    "tenant_network_type": "gre",
+                    "local_ip_interface": "eth2",
+                    "bridge_mappings": "external:br-ex"
+                },
+                "api": {
+                    "bind_interface": "eth1"
+                },
+                "quota": {
+                    "floatingip": "50"
+                },
+                "l3":{
+                    "external_network_bridge_interface": "eth3"
+                }
+            },
+            "block-storage": {
+                "volume": {
+                    "create_volume_group": true,
+                    "default_volume_type": "lvm"
+                }
+            },
+            "image": {
+                "api": {
+                    "bind_interface": "eth1"
+                },
+                "debuge": true,
+                "identity_service_chef_role": "os-identity",
+                "rabbit_server_chef_role": "os-ops-messaging",
+                "registry": {
+                    "bind_interface": "eth1"
+                },
+                "image_upload": true,
+                "upload_images": [
+                    "cirros"
+                ],
+                "upload_image": {
+                    "cirros": "https://launchpad.net/cirros/trunk/0.3.0/+download/cirros-0.3.0-x86_64-disk.img"
+                }
+            },
+            "compute": {
+                "rabbit":{
+                  "host": "10.0.3.11"
+                },
+                "enabled_apis": "ec2,osapi_compute",
+                "novnc_proxy": {
+                    "bind_interface": "eth1",
+                    "bind_address": "0.0.0.0"
+                },
+                "xvpvnc_proxy": {
+                    "bind_interface": "eth1",
+                    "bind_address": "0.0.0.0"
+                },
+                "libvirt": {
+                    "virt_type": "qemu"
+                },
+                "network": {
+                    "public_interface": "eth1",
+                    "service_type": "neutron",
+                    "neutron": {
+                      "libvirt_vif_driver": "nova.virt.libvirt.vif.LibvirtHybridOVSBridgeDriver"
+                    }
+                },
+                "config": {
+                    "ram_allocation_ratio": 5.0
+                }
+            },
+            "orchestration": {
+                "api":{
+                  "bind_interface": "eth1"
+                },
+                "api-cfn": {
+                  "bind_interface": "eth1"
+                },
+                "api-cloudwatch":{
+                  "bind_interface": "eth1"
+                }
+            }
+        }
+    }
+}
+
